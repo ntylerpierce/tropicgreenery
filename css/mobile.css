@@ -167,7 +167,7 @@
 
   .footer-grid {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     width: 100%;
     gap: 32px;
   }
