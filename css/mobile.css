@@ -85,6 +85,9 @@
   /* Gallery: 2 columns at tablet */
   .gallery-full-grid { columns: 2; }
 
+  /* Blog: 2 columns at tablet */
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+
   /* Footer: Col 1 full-width top row, Col 2 + Col 3 side by side below */
   .footer-grid {
     flex-wrap: wrap;
@@ -141,6 +144,9 @@
   .footer-grid .footer-col:nth-child(1) { flex: 0 0 35%; }
   .footer-grid .footer-col:nth-child(2) { flex: 0 0 25%; }
   .footer-grid .footer-col:nth-child(3) { flex: 0 0 40%; }
+
+  /* Blog: 3-column at desktop */
+  .blog-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ============================================================
