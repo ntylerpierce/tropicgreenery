@@ -160,15 +160,40 @@
    MOBILE — 480px and below: stack all footer columns
    ============================================================ */
 @media (max-width: 480px) {
+  .site-footer {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   .footer-grid {
+    display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 32px;
   }
+
+  .footer-col {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
   .footer-grid .footer-col:nth-child(1),
   .footer-grid .footer-col:nth-child(2),
   .footer-grid .footer-col:nth-child(3) {
     flex: 0 0 100%;
+  }
+
+  .site-footer .container {
     width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+  .footer-bottom {
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
