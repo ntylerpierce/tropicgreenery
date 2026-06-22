@@ -1,0 +1,140 @@
+/* ============================================================
+   MOBILE.CSS — all @media queries
+   Imported at bottom of style.css
+   Base styles are mobile-first (320px+)
+   ============================================================ */
+
+/* Mobile only: hide quote button in header (drawer has it) */
+@media (max-width: 767px) {
+  .header-cta-mobile { display: none; }
+}
+
+/* ============================================================
+   TABLET — 768px+
+   ============================================================ */
+@media (min-width: 768px) {
+
+  /* Header */
+  .header-phone      { display: block; }
+  .header-cta-mobile { display: none; } /* phone number replaces it */
+  .hamburger         { display: none; }
+  .nav-mobile  { display: none !important; } /* drawer hidden, use desktop nav */
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .nav-desktop a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    transition: color var(--transition);
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--transition), color var(--transition);
+  }
+  .nav-desktop a:hover,
+  .nav-desktop a.active {
+    color: var(--color-green-dark);
+    border-bottom-color: var(--color-green-dark);
+  }
+
+  /* Trust bar */
+  .trust-bar li { min-width: unset; }
+
+  /* Services grid: 2 columns on tablet */
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* About */
+  .about-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 56px;
+  }
+  .about-image { flex: 0 0 46%; max-width: 46%; }
+  .about-copy  { flex: 1; }
+
+  /* Testimonials: 3 columns */
+  .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+
+  /* Gallery: 3-column */
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(6) { grid-column: span 1; aspect-ratio: 4/3; }
+
+  /* Lead form: 2-column rows */
+  .lead-form .form-row { flex-direction: row; }
+  .lead-form button[type="submit"] { align-self: flex-end; }
+
+  /* Footer: Col 1 full-width top row, Col 2 + Col 3 side by side below */
+  .footer-grid {
+    flex-wrap: wrap;
+  }
+  .footer-grid .footer-col:nth-child(1) { flex: 0 0 100%; }
+  .footer-grid .footer-col:nth-child(2) { flex: 1; }
+  .footer-grid .footer-col:nth-child(3) { flex: 1; }
+}
+
+/* ============================================================
+   DESKTOP — 1024px+
+   ============================================================ */
+@media (min-width: 1024px) {
+
+  /* Services grid: 3 columns */
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+
+  /* Gallery: full masonry-style */
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: 16/7; }
+  .gallery-item:nth-child(4) { grid-row:    span 2; aspect-ratio: unset; }
+  .gallery-item:nth-child(6) { grid-column: span 1; aspect-ratio: 4/3; }
+
+  /* Lead form: 4-fields in one row */
+  .lead-form .form-row-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 14px;
+  }
+  .lead-form .form-row-submit {
+    display: flex;
+    justify-content: center;
+  }
+  .lead-form button[type="submit"] { align-self: auto; padding: 15px 40px; }
+
+  /* Footer: restore 3-col proportional row (no wrap needed at 1024+) */
+  .footer-grid { flex-wrap: nowrap; }
+  .footer-grid .footer-col:nth-child(1) { flex: 0 0 35%; }
+  .footer-grid .footer-col:nth-child(2) { flex: 0 0 25%; }
+  .footer-grid .footer-col:nth-child(3) { flex: 0 0 40%; }
+}
+
+/* ============================================================
+   LARGE DESKTOP — 1280px+
+   ============================================================ */
+@media (min-width: 1280px) {
+  .container { padding-inline: 40px; }
+}
+
+/* ============================================================
+   MOBILE — 480px and below: stack all footer columns
+   ============================================================ */
+@media (max-width: 480px) {
+  .footer-grid {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .footer-grid .footer-col:nth-child(1),
+  .footer-grid .footer-col:nth-child(2),
+  .footer-grid .footer-col:nth-child(3) {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   NO-JS FALLBACK — when JS is disabled
+   ============================================================ */
+.no-js .fade-in {
+  opacity: 1;
+  transform: none;
+}
